@@ -1,0 +1,13 @@
+REPL
+this stands for 
+-----
+READ 
+EVALUATE
+PRINT 
+LOOP
+----------- features
+1. JS EXPRESSION
+2. use variables 
+3. Multiline code / loops 
+4. use underscore (_) to ge the last result 
+5. we can use editor mode

@@ -1,0 +1,27 @@
+{
+  "name": "node_express_tut",
+  "version": "1.0.0",
+  "description": "nothing",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Veer-Khatri/nodeJs---expressJs-Tutorial.git"
+  },
+  "author": "veer the robo boy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Veer-Khatri/nodeJs---expressJs-Tutorial/issues"
+  },
+  "homepage": "https://github.com/Veer-Khatri/nodeJs---expressJs-Tutorial#readme",
+  "dependencies": {
+    "chalk": "^5.0.0",
+    "validator": "^13.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

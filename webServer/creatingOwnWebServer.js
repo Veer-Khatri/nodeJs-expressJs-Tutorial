@@ -1,6 +1,19 @@
 import { createServer } from "http";
 const server =  createServer((requestt,responsee)=>{
-    responsee.end("hemllo");
+    console.log(requestt.url); // it will without importing url 
+    // server routing 
+    if (requestt.url === "/") {
+        responsee.end("hello home");
+    }
+    else if(requestt.url === "/about"){
+        responsee.end("hello about");
+    }
+    else if(requestt.url === "/contact"){
+        responsee.end("hello contact");
+    }
+    else{
+        responsee.end("ab bas bhi kar bhai");
+    }
 })
 let host = "127.0.0.1"
 let port = "8000" 

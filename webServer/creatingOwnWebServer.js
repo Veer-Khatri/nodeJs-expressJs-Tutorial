@@ -11,6 +11,10 @@ const server =  createServer((requestt,responsee)=>{
     else if(requestt.url === "/contact"){
         responsee.end("hello contact");
     }
+    // creating own api
+    else if(requestt.url === "/api"){
+        responsee.end("hello api");
+    }
     else{
         responsee.end("ab bas bhi kar bhai");
     }

@@ -1,0 +1,13 @@
+[
+    {
+        "name":"bye",
+        "work" : "greeting",
+        "length" : 3
+    }, 
+    {
+        "name" : "hello",
+        "work" : "greeting",
+        "length" : 5
+    }
+    
+]

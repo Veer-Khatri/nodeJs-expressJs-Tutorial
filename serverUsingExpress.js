@@ -3,6 +3,26 @@ const path = require('path');
 const PORT = process.env.PORT || 3500;
 const myApp = express();
 
+// custom middleware logger
+myApp.use((req, res, next) =>{
+    console.log(`Method:${req.method}\t Path:${req.path}`);
+    next();
+})
+
+
+
+
+// bulit-in middleware to handle urlencoded data 
+// in other words , form data 
+//  "content-type: application/x-www-form-urlencoded" 
+myApp.use(express.urlencoded({extended:false}))// it will apply to all routes bottom of it 
+
+// built-in middleware for json
+myApp.use(express.json())
+
+// serve static file
+myApp.use(express.static(path.join(__dirname,"Dave Gray Node and Express tut/public")))
+
 myApp.get('^/$|/index(.html)?',(requestt, responsee)=>{
     // responsee.sendFile("./Dave Gray Node and Express tut/views/index.html", {root: __dirname}) // first way
     responsee.sendFile(path.join(__dirname, "Dave Gray Node and Express tut/views" , "index.html")) // second way

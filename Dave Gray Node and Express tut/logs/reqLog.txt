@@ -11,3 +11,59 @@
 22332021	13:33:24 	fe51d3d4-581f-4b51-9237-907904f37e47	/css/style.css	GET
 22/12/2021	13:34:02 	afab621c-9422-4bc8-87ba-d59593bf0238	/	GET
 22/12/2021	13:34:02 	793bbd61-975a-4a07-afc3-239c9e15b5ef	/css/style.css	GET
+24/12/2021	12:36:03 	078bce3e-7b6a-46da-810c-3f58a767b645	GET	undefined	/
+24/12/2021	12:36:03 	ee67ae62-57ef-4557-8a8f-730ebecac9ce	GET	undefined	/css/style.css
+24/12/2021	12:36:39 	beb5fe4f-9561-46ed-9734-9fd0d60a893c	GET	undefined	/
+24/12/2021	12:36:39 	20ab125e-4d2d-4527-90e4-4335db0ce969	GET	undefined	/css/style.css
+24/12/2021	12:37:42 	7989d7f3-4775-4f3f-86d6-dbfdaf36d572	Method:GET	Origin:undefined	URL:/
+24/12/2021	12:37:42 	6659b832-5269-460d-89b0-46df6ce451d1	Method:GET	Origin:undefined	URL:/css/style.css
+24/12/2021	12:38:19 	7f0f37e6-ca44-43b1-bf4d-68c3869daace	Method: GET	Origin: undefined	URL: /
+24/12/2021	12:38:19 	14b27083-1ff4-4291-94ec-b6ae74379896	Method: GET	Origin: undefined	URL: /css/style.css
+24/12/2021	12:39:07 	8cf179c5-ab7e-46bf-8007-81b2e443bc6e	[Method: GET]	[Origin: undefined]	[URL: /]
+24/12/2021	12:39:07 	33adf02f-7e0c-4f39-8d76-c318117758b8	[Method: GET]	[Origin: undefined]	[URL: /css/style.css]
+24/12/2021	12:42:00 	80b776ec-5de8-458c-b443-30346af6b8e2	[Method: GET]	[Origin: undefined]	[URL: /]
+24/12/2021	12:42:00 	a6829aef-3535-409b-813f-a36d5c537283	[Method: GET]	[Origin: undefined]	[URL: /css/style.css]
+24/12/2021	12:45:37 	00f8042c-660d-4e8e-9397-9cd880c5676b	[Method: GET]	[Origin: https://www.google.co.in]	[URL: /]
+24/12/2021	12:47:53 	bf23fad4-3ca3-47bd-a937-d11596077d36	[Method: GET]	[Origin: https://www.google.co.in]	[URL: /]
+24/12/2021	13:00:11 	62c6086d-ff70-4869-bee3-e836ecbed399	[Method: GET]	[Origin: https://www.google.co.in]	[URL: /]
+24/12/2021	13:00:29 	02bc3fc4-936d-41bb-981d-e8abf8fab101	[Method: GET]	[Origin: https://www.google.co.in]	[URL: /]
+24/12/2021	13:00:51 	6c27cbc9-eca7-4d2a-a6d1-63ea4d8a2c63	[Method: GET]	[Origin: https://www.google.com]	[URL: /]
+24/12/2021	13:01:33 	29454778-0707-440b-a16c-a7ba262d288e	[Method: GET]	[Origin: https://www.google.co.in]	[URL: /]
+24/12/2021	13:01:42 	aa337640-0ac0-4987-950e-6f9cf7ae2b92	[Method: GET]	[Origin: https://www.google.co.in]	[URL: /]
+24/12/2021	13:03:50 	16ba33f2-1f7b-4b5d-b6b2-73694225820a	[Method: GET]	[Origin: undefined]	[URL: /]
+24/12/2021	13:04:22 	bfc964d5-5f99-4b7b-be97-be1d450a9ac2	[Method: GET]	[Origin: undefined]	[URL: /]
+24/12/2021	13:04:22 	a85dd7a0-8234-4618-9087-3704a4a663e7	[Method: GET]	[Origin: undefined]	[URL: /]
+24/12/2021	13:04:25 	356593c6-12a7-4149-acf2-1896b1fb87d4	[Method: GET]	[Origin: undefined]	[URL: /]
+24/12/2021	13:04:30 	ee25b631-4613-440a-9306-56771f02d144	[Method: GET]	[Origin: undefined]	[URL: /]
+24/12/2021	13:04:34 	205a0471-a29c-44f4-93cd-ca8c09535659	[Method: GET]	[Origin: undefined]	[URL: /]
+24/12/2021	13:04:40 	96675dc2-2837-435b-baea-c156469775d9	[Method: GET]	[Origin: undefined]	[URL: /]
+24/12/2021	13:04:40 	3174aa7c-eb8f-4e0d-8bdb-2b02e66dfaf1	[Method: GET]	[Origin: undefined]	[URL: /]
+24/12/2021	13:04:40 	de910d38-a636-4725-b5b5-32dec0099081	[Method: GET]	[Origin: undefined]	[URL: /]
+24/12/2021	13:04:45 	16a182a6-e59a-47eb-a9bd-2e83ff3b9a78	[Method: GET]	[Origin: undefined]	[URL: /]
+24/12/2021	13:04:46 	8076a4e3-dd22-4db8-b963-75171eef91f0	[Method: GET]	[Origin: undefined]	[URL: /]
+24/12/2021	13:04:46 	ba00e867-4c32-4171-b8dc-b65a6fd224df	[Method: GET]	[Origin: undefined]	[URL: /]
+24/12/2021	13:04:46 	c9b320be-f58f-4eca-bc11-cbb823a3f6fb	[Method: GET]	[Origin: undefined]	[URL: /]
+24/12/2021	13:04:46 	4d6d71bf-cc64-49d1-8fa1-76cd71be6bfc	[Method: GET]	[Origin: undefined]	[URL: /]
+24/12/2021	13:04:53 	b607397f-3fa4-4e23-868c-b1d732ebc4de	[Method: GET]	[Origin: undefined]	[URL: /]
+24/12/2021	13:06:07 	e0024d6d-3fea-4b32-9dd2-ade9a90f3288	[Method: GET]	[Origin: undefined]	[URL: /]
+24/12/2021	13:06:14 	7f6f0483-fbb4-4c40-8f04-22f2456b531a	[Method: GET]	[Origin: undefined]	[URL: /]
+24/12/2021	13:06:34 	9b9b40f6-e2c1-4915-8e46-b7ccbb42b637	[Method: GET]	[Origin: undefined]	[URL: /]
+24/12/2021	13:07:11 	c5754c7a-d122-480a-86c5-3ed32a13bb91	[Method: GET]	[Origin: undefined]	[URL: /]
+24/12/2021	13:09:42 	2199f6a9-1594-46dd-9edf-c6a0cbd322f8	[Method: GET]	[Origin: undefined]	[URL: /]
+24/12/2021	13:10:40 	a6582385-0704-4985-b109-90626fdc71c0	[Method: GET]	[Origin: undefined]	[URL: /]
+24/12/2021	13:10:40 	46438be6-4705-49f9-a6a7-78613eb5b7df	[Method: GET]	[Origin: undefined]	[URL: /css/style.css]
+24/12/2021	13:18:30 	959512ff-4f70-4c61-afc8-2f502deb1ffd	[Method: GET]	[Origin: undefined]	[URL: /]
+24/12/2021	13:18:30 	a249764a-4dcc-4ca0-a411-d951f68ef5bf	[Method: GET]	[Origin: undefined]	[URL: /css/style.css]
+24/12/2021	13:18:52 	8d4193fe-8ccf-4d3d-ab6f-9f982d282247	[Method: GET]	[Origin: undefined]	[URL: /]
+24/12/2021	13:19:22 	7bd66206-c269-4fd5-9711-c396eb930eb7	[Method: GET]	[Origin: undefined]	[URL: /]
+24/12/2021	13:19:22 	b8ab853c-4876-4006-be9f-d008deb323f2	[Method: GET]	[Origin: undefined]	[URL: /css/style.css]
+24/12/2021	13:20:16 	1b89a52a-5a4d-4bd7-8650-491d37b3db48	[Method: GET]	[Origin: undefined]	[URL: /]
+24/12/2021	13:20:16 	8fd8c77f-ed30-42e6-9596-81860668e1c3	[Method: GET]	[Origin: undefined]	[URL: /css/style.css]
+24/12/2021	13:20:19 	9be445c8-a927-4565-907b-5a66d4cb937a	[Method: GET]	[Origin: undefined]	[URL: /g]
+24/12/2021	13:20:19 	eaa51166-b8c4-4557-8541-dffe0533580f	[Method: GET]	[Origin: undefined]	[URL: /css/style.css]
+24/12/2021	13:23:25 	a304146b-ebc9-46ad-9d61-04d09f7a4edf	[Method: GET]	[Origin: undefined]	[URL: /g]
+24/12/2021	13:23:25 	aecd79be-8724-4e76-9cbf-96e0ab610ced	[Method: GET]	[Origin: undefined]	[URL: /css/style.css]
+24/12/2021	13:23:25 	798bbc3e-c63e-40ec-9f15-25149cb59190	[Method: GET]	[Origin: undefined]	[URL: /g]
+24/12/2021	13:23:25 	a85b5171-8692-47db-bf39-ed7c97d4e684	[Method: GET]	[Origin: undefined]	[URL: /css/style.css]
+24/12/2021	13:23:28 	99ff55c7-6b49-44b3-a6ff-b02f4e2b969c	[Method: GET]	[Origin: undefined]	[URL: /g]
+24/12/2021	13:23:28 	9f516c7d-82bd-46eb-8010-dfcab86229e5	[Method: GET]	[Origin: undefined]	[URL: /css/style.css]

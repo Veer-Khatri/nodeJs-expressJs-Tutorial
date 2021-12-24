@@ -1,0 +1,1 @@
+24/12/2021	13:18:52 	5faa3dab-4336-448f-b816-c3725a2d5cf8	Error: not allowed by CORS

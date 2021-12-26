@@ -1,1 +1,15 @@
 24/12/2021	13:18:52 	5faa3dab-4336-448f-b816-c3725a2d5cf8	Error: not allowed by CORS
+24/12/2021	13:57:38 	419f026a-fe05-45de-983a-465a1f1cbb69	Error: ENOENT: no such file or directory, stat 'C:\Users\Veer Khatri\Desktop\Programmig tuts\nodeJs & expressJs Tutorial\Dave Gray Node and Express tut\Routes\Dave Gray Node and Express tut\views\subdir\index.html'
+24/12/2021	14:04:32 	7e3fb778-863e-4882-85d4-4bb4fa4e20c6	Error: ENOENT: no such file or directory, stat 'C:\Users\Veer Khatri\Desktop\Programmig tuts\nodeJs & expressJs Tutorial\Dave Gray Node and Express tut\Routes\Dave Gray Node and Express tut\views\subdir\index.html'
+24/12/2021	14:05:47 	011083ca-1fdb-4011-b9e5-e7230348db4e	Error: ENOENT: no such file or directory, stat 'C:\Users\Veer Khatri\Desktop\Programmig tuts\nodeJs & expressJs Tutorial\Dave Gray Node and Express tut\Routes\Dave Gray Node and Express tut\views\subdir\index.html'
+24/12/2021	14:05:49 	d7270ac1-6ced-4e22-a377-20dabb78a348	Error: ENOENT: no such file or directory, stat 'C:\Users\Veer Khatri\Desktop\Programmig tuts\nodeJs & expressJs Tutorial\Dave Gray Node and Express tut\Routes\Dave Gray Node and Express tut\views\subdir\index.html'
+24/12/2021	14:06:08 	99fb2043-a387-45fe-b01f-8340849c730e	Error: ENOENT: no such file or directory, stat 'C:\Users\Veer Khatri\Desktop\Programmig tuts\nodeJs & expressJs Tutorial\Dave Gray Node and Express tut\Routes\Dave Gray Node and Express tut\views\subdir\index.html'
+25/12/2021	14:05:11 	c70b3c76-031c-45b8-801a-9f1afc6c737a	ReferenceError: req is not defined
+25/12/2021	14:05:16 	c89e7cd2-d652-42c8-b077-b4e6a7f43b8d	ReferenceError: req is not defined
+25/12/2021	14:05:24 	579090de-65d6-40b0-9fc0-95c51ed9e4f6	ReferenceError: req is not defined
+25/12/2021	14:05:36 	08ab4f31-ec62-4198-8b49-722ea5dbb643	ReferenceError: req is not defined
+25/12/2021	14:05:54 	b613604b-66ad-4e1c-a36d-8a5dbc1d87b7	ReferenceError: req is not defined
+25/12/2021	14:05:54 	45d1d553-6a05-4984-85a5-eff1b49e1c01	ReferenceError: req is not defined
+25/12/2021	14:06:19 	4803304a-7d54-4ff4-b1cb-99d889b08a1f	ReferenceError: req is not defined
+25/12/2021	14:06:22 	d30f30fd-38b7-4cbc-b585-7b55236ebbd6	ReferenceError: req is not defined
+25/12/2021	14:06:22 	23a33bba-835f-4a3d-9ad3-b2b11b2749f5	ReferenceError: req is not defined

@@ -5,8 +5,6 @@ const myApp = express();
 const cors = require("cors")
 const {logger} = require("./Dave Gray Node and Express tut/Middleware/logEvents"); 
 const  errorHandler  = require("./Dave Gray Node and Express tut/Middleware/errorHandler");
-const req = require("express/lib/request");
-const res = require("express/lib/response");
 
 // custom middleware logger
 myApp.use(logger)
@@ -38,49 +36,46 @@ myApp.use(express.urlencoded({extended:false}))// it will apply to all routes bo
 // built-in middleware for json
 myApp.use(express.json())
 
-// serve static file
+// -----------------------Serve static file------------------------------------
 myApp.use(express.static(path.join(__dirname,"Dave Gray Node and Express tut/public")))
+myApp.use("/subdir",express.static(path.join(__dirname,"Dave Gray Node and Express tut/public")))
 
-myApp.get('^/$|/index(.html)?',(requestt, responsee)=>{
-    // responsee.sendFile("./Dave Gray Node and Express tut/views/index.html", {root: __dirname}) // first way
-    responsee.sendFile(path.join(__dirname, "Dave Gray Node and Express tut/views" , "index.html")) // second way
-})
 
-myApp.get('/new-page(.html)?',(requestt, responsee)=>{
-    // responsee.sendFile("./Dave Gray Node and Express tut/views/index.html", {root: __dirname}) // first way
-    responsee.sendFile(path.join(__dirname, "Dave Gray Node and Express tut/views" , "new-page.html")) // second way
-})
-myApp.get('/old-page(.html)?',(requestt, responsee)=>{
-    responsee.redirect(301, "/new-page.html") //302 by default
-})
+// ---------------------------------ROUTES-------------------------------------------------- 
+myApp.use("/",require("./Dave Gray Node and Express tut/Routes/root"))
+myApp.use("/subdir",require('./Dave Gray Node and Express tut/Routes/subdir'))
+myApp.use("/employee",require('./Dave Gray Node and Express tut/Routes/api/employee'))
 
-// Route Handlers 
-myApp.get('/hello(.html)?',(requestt, responsee, nextt)=>{
-    console.log("Attempted to load hello.html");
-    nextt();
-}, (req,res)=>{ 
-    res.send("boom boom robota robota boom boom robota robota");    
-})
 
-//  CHANNING ROUTING HANDLERS
-const one = (requestt, responsee, nextt) =>{
-    console.log("one");
-    nextt();
-}
-const two = (requestt, responsee, nextt) =>{
-    console.log("two");
-    nextt();
-}
-const three = (requestt, responsee, nextt) =>{
-    console.log("three");
-    responsee.send("finished");
+// // Route Handlers 
+// myApp.get('/hello(.html)?',(requestt, responsee, nextt)=>{
+//     console.log("Attempted to load hello.html");
+//     nextt();
+// }, (req,res)=>{ 
+//     res.send("boom boom robota robota boom boom robota robota");    
+// })
+
+// //  CHANNING ROUTING HANDLERS
+// const one = (requestt, responsee, nextt) =>{
+//     console.log("one");
+//     nextt();
+// }
+// const two = (requestt, responsee, nextt) =>{
+//     console.log("two");
+//     nextt();
+// }
+// const three = (requestt, responsee, nextt) =>{
+//     console.log("three");
+//     responsee.send("finished");
     
-}
+// }
 
-myApp.get("/chain(.html)?",[one ,two ,three]);
+// myApp.get("/chain(.html)?",[one ,two ,three]);
+
+
 myApp.all('*',(requestt, responsee)=>{
     responsee.status(404)
-    if (req.accepts('html')) {
+    if (requestt.accepts('html')) {
         responsee.sendFile(path.join(__dirname,"Dave Gray Node and Express tut/views", "404.html")) 
     }
     else if (req.accepts('html')) {

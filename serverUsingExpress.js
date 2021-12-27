@@ -5,24 +5,13 @@ const myApp = express();
 const cors = require("cors")
 const {logger} = require("./Dave Gray Node and Express tut/Middleware/logEvents"); 
 const  errorHandler  = require("./Dave Gray Node and Express tut/Middleware/errorHandler");
+const corsOptions = require("./Dave Gray Node and Express tut/config/corsOption")
 
 // custom middleware logger
 myApp.use(logger)
 
-// the whitelist websites only can request us to access our routes
-const whiteList  = [,`https://www.google.com`,`http://127.0.0.1:55000`,"http://localhost:3500","http://127.0.0.1:3500"]
-const corsOptions ={
-    origin: (origin,callback)=>{
-        if (whiteList.indexOf(origin) !== -1 || !origin){
-            callback(null,true);
-            
-        }else{
-            callback(new Error("not allowed by CORS"))
-        }
 
-    },
-    optionSuccssStatus : 200
-}
+
 myApp.use(cors(corsOptions))// cors -- Cross Origin Resource Sharing  
 
 
@@ -38,12 +27,10 @@ myApp.use(express.json())
 
 // -----------------------Serve static file------------------------------------
 myApp.use(express.static(path.join(__dirname,"Dave Gray Node and Express tut/public")))
-myApp.use("/subdir",express.static(path.join(__dirname,"Dave Gray Node and Express tut/public")))
 
 
 // ---------------------------------ROUTES-------------------------------------------------- 
 myApp.use("/",require("./Dave Gray Node and Express tut/Routes/root"))
-myApp.use("/subdir",require('./Dave Gray Node and Express tut/Routes/subdir'))
 myApp.use("/employee",require('./Dave Gray Node and Express tut/Routes/api/employee'))
 
 

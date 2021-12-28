@@ -32,7 +32,8 @@ myApp.use(express.static(path.join(__dirname,"Dave Gray Node and Express tut/pub
 // ---------------------------------ROUTES-------------------------------------------------- 
 myApp.use("/",require("./Dave Gray Node and Express tut/Routes/root"))
 myApp.use("/employee",require('./Dave Gray Node and Express tut/Routes/api/employee'))
-
+myApp.use("/register",require("./Dave Gray Node and Express tut/Routes/RegisterUser"))
+myApp.use("/auth",require("./Dave Gray Node and Express tut/Routes/auth"))
 
 // // Route Handlers 
 // myApp.get('/hello(.html)?',(requestt, responsee, nextt)=>{

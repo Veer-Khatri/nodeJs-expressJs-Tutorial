@@ -13,9 +13,9 @@ const getSpecificEmployee = (req, res) => {
 
     if (!employee) {
         return res.status(400).json({ "message": `Employee ID ${req.params.id} not found` });
+        
     }
     const filteredArray = data.employees.filter((emp) => { return emp.id === parseInt(req.params.id)});
-
     data.setEmployees([...filteredArray])
     res.json(data.employees);
 }

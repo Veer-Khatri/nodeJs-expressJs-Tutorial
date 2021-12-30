@@ -1,8 +1,5 @@
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
-const fsPromises = require("fs").promises;
-const path = require("path");
-
 
 const userDB = {
     users: require("../data/users.json"),
@@ -10,53 +7,40 @@ const userDB = {
         return this.users = data
     }
 } 
-const bcrypt = require("bcrypt")
-const handleLogin = async (req, res) => {
-    const { user, pass } = req.body
-    if (!user || !pass) {
-        return res.status(400).json({ "message": "username and password are required" })
+const handleRefreshToken = (req, res) => {
+    const cookies = req.cookies
+    
+    
+    if (!cookies?.checker) {
+        return res.sendStatus(401);
     }
-    const userExist = userDB.users.find((person) => { return person.username === user })
+    console.log(cookies.checker);
+    const refrestToken = cookies.checker
+    const userExist = userDB.users.find((person) => { return person.refreshToken === refrestToken })
     if (!userExist) {
-        return res.status(401).json({ "message": "no such user" }); // Unauthorized
+        return res.status(403)
     }
-    // evaluate Password
-    const match = await bcrypt.compare(pass, userExist.password)
-    if (match) {
-        // JWTs
-        const accessToken = jwt.sign(
-            {"username":userExist.username},
-            process.env.ACCESS_TOKEN_SECRET,
-            {expiresIn:"30s"}
-
-        );
-        const refreshToken = jwt.sign(
-            {"username" : userExist.username},
-            process.env.REFRESH_TOKEN_SECRET,
-            {expiresIn:"1d"}
-
-        );
-        // Saving refresh token with current user 
-        const otherUsers = userDB.users.filter(person => person.username !== userExist.username);
-        const currentUser = {...userExist , refreshToken};
-        userDB.setUsers([...otherUsers,currentUser]);
-        await fsPromises.writeFile(
-            path.join(__dirname,"../data/users.json"),
-            JSON.stringify(userDB.users)
-        );
-        // httpOnly cookie is not available to js thats why we are sending refresh token in cookie otherwise in normal cookie we dont send it 
-        // httpOnly cookie is not 100% secure but much secure than localStorage or normal cookie
-        res.cookie("checker",refreshToken,{ httpOnly : true , maxAge: 24*60*60*1000})
-        res.json({ accessToken })
-        // we must save the accessToken in memory not in cookie or localstorage so that it cant be accessed by js
-       
-    } else {
-        res.status(401).json({ "message": "incorrect password" })
-    }
+    // evaluate jwt
+    jwt.verify(
+        refrestToken,
+        process.env.REFRESH_TOKEN_SECRET,
+        (err, decodedToken)=>{
+            if (err || userExist.username !== decodedToken.username ) {
+                return res.sendStatus(403);
+            }
+            const accessToken = jwt.sign(
+                {"username":decodedToken.username},
+                process.env.ACCESS_TOKEN_SECRET,
+                {expiresIn:"30s"}
+            );
+            res.json({accessToken})
+        }
+    )
+    
 }
 
 
-module.exports = { handleLogin }
+module.exports = { handleRefreshToken }
 
 //  -----------------------------READ THIS FOR UNDERSTANDING JWT----------------------------
 

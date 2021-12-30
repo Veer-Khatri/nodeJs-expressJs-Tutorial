@@ -6,6 +6,8 @@ const cors = require("cors")
 const {logger} = require("./Dave Gray Node and Express tut/Middleware/logEvents"); 
 const  errorHandler  = require("./Dave Gray Node and Express tut/Middleware/errorHandler");
 const corsOptions = require("./Dave Gray Node and Express tut/config/corsOption")
+const verifyJWT = require("./Dave Gray Node and Express tut/Middleware/verifyJWT");
+const cookieParser = require("cookie-parser")
 
 // custom middleware logger
 myApp.use(logger)
@@ -25,16 +27,22 @@ myApp.use(express.urlencoded({extended:false}))// it will apply to all routes bo
 // built-in middleware for json
 myApp.use(express.json())
 
+// Middleware for cookies
+myApp.use(cookieParser())
+
 // -----------------------Serve static file------------------------------------
 myApp.use(express.static(path.join(__dirname,"Dave Gray Node and Express tut/public")))
 
 
 // ---------------------------------ROUTES-------------------------------------------------- 
 myApp.use("/",require("./Dave Gray Node and Express tut/Routes/root"))
-myApp.use("/employee",require('./Dave Gray Node and Express tut/Routes/api/employee'))
 myApp.use("/register",require("./Dave Gray Node and Express tut/Routes/RegisterUser"))
 myApp.use("/auth",require("./Dave Gray Node and Express tut/Routes/auth"))
+myApp.use("/logout",require("./Dave Gray Node and Express tut/Routes/logout" ))
+myApp.use("/refresh",require("./Dave Gray Node and Express tut/Routes/refreshTokenRoute"))
 
+myApp.use(verifyJWT)// everything after this line will user verifyJWT middleware
+myApp.use("/employee",require('./Dave Gray Node and Express tut/Routes/api/employee'))
 // // Route Handlers 
 // myApp.get('/hello(.html)?',(requestt, responsee, nextt)=>{
 //     console.log("Attempted to load hello.html");
@@ -76,3 +84,4 @@ myApp.all('*',(requestt, responsee)=>{
 myApp.use(errorHandler)
 
 myApp.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
+// require("crypto").randomBytes(64).toString("hex") to get random 

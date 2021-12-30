@@ -1,62 +1,38 @@
-const jwt = require("jsonwebtoken");
-require("dotenv").config();
-const fsPromises = require("fs").promises;
-const path = require("path");
-
-
+const fsPormises = require("fs").promises
+const path = require("path")
 const userDB = {
     users: require("../data/users.json"),
     setUsers: function (data) {
         return this.users = data
     }
 } 
-const bcrypt = require("bcrypt")
-const handleLogin = async (req, res) => {
-    const { user, pass } = req.body
-    if (!user || !pass) {
-        return res.status(400).json({ "message": "username and password are required" })
+const handleLogout = async (req, res) => {
+    // on client, also can delete the accessToken
+    const cookies = req.cookies
+    if (!cookies?.checker) {
+        return res.sendStatus(204); // No content to send back
     }
-    const userExist = userDB.users.find((person) => { return person.username === user })
+    const refrestToken = cookies.checker
+    // if refreshToken in DB?
+    const userExist = userDB.users.find((person) => { return person.refreshToken === refrestToken })
     if (!userExist) {
-        return res.status(401).json({ "message": "no such user" }); // Unauthorized
+        res.clearCookie("checker",{httpOnly:true})
+        return res.sendStatus(204)
     }
-    // evaluate Password
-    const match = await bcrypt.compare(pass, userExist.password)
-    if (match) {
-        // JWTs
-        const accessToken = jwt.sign(
-            {"username":userExist.username},
-            process.env.ACCESS_TOKEN_SECRET,
-            {expiresIn:"30s"}
-
-        );
-        const refreshToken = jwt.sign(
-            {"username" : userExist.username},
-            process.env.REFRESH_TOKEN_SECRET,
-            {expiresIn:"1d"}
-
-        );
-        // Saving refresh token with current user 
-        const otherUsers = userDB.users.filter(person => person.username !== userExist.username);
-        const currentUser = {...userExist , refreshToken};
-        userDB.setUsers([...otherUsers,currentUser]);
-        await fsPromises.writeFile(
-            path.join(__dirname,"../data/users.json"),
-            JSON.stringify(userDB.users)
-        );
-        // httpOnly cookie is not available to js thats why we are sending refresh token in cookie otherwise in normal cookie we dont send it 
-        // httpOnly cookie is not 100% secure but much secure than localStorage or normal cookie
-        res.cookie("checker",refreshToken,{ httpOnly : true , maxAge: 24*60*60*1000})
-        res.json({ accessToken })
-        // we must save the accessToken in memory not in cookie or localstorage so that it cant be accessed by js
-       
-    } else {
-        res.status(401).json({ "message": "incorrect password" })
-    }
+    // Delete the refresh token in database
+    const otherusers =  userDB.users.filter(person =>person.refreshToken !== userExist.refreshToken )
+    const currentUser = {...userExist, refreshToken:""}// emptied currentUser's refresh token
+    userDB.setUsers([...otherusers, currentUser]);
+    await fsPormises.writeFile(
+        path.join(__dirname,"../data/users.json"),
+        JSON.stringify(userDB.users)
+    )
+    res.clearCookie("checker",{httpOnly:true}) // secure :true : only serves on https
+    res.sendStatus(204);
 }
 
 
-module.exports = { handleLogin }
+module.exports = { handleLogout }
 
 //  -----------------------------READ THIS FOR UNDERSTANDING JWT----------------------------
 

@@ -28,8 +28,14 @@ const handleRefreshToken = (req, res) => {
             if (err || userExist.username !== decodedToken.username ) {
                 return res.sendStatus(403);
             }
+            const roles = Object.values(userExist.roles)
             const accessToken = jwt.sign(
-                {"username":decodedToken.username},
+                {
+                    "UserInfo": {
+                        "username": decodedToken.username,
+                        "roles": roles
+                    }
+                },
                 process.env.ACCESS_TOKEN_SECRET,
                 {expiresIn:"30s"}
             );

@@ -1,26 +1,18 @@
 const jwt = require("jsonwebtoken");
-require("dotenv").config();
-const fsPromises = require("fs").promises;
-const path = require("path");
-
-
-const userDB = {
-    users: require("../data/users.json"),
-    setUsers: function (data) {
-        return this.users = data
-    }
-}
+const User = require("../data/User");
 const bcrypt = require("bcrypt")
+
 const handleLogin = async (req, res) => {
     const { user, pass } = req.body
     if (!user || !pass) {
         return res.status(400).json({ "message": "username and password are required" })
     }
-    const userExist = userDB.users.find((person) => { return person.username === user })
+    const userExist = await User.findOne({ username: user }).exec()
     if (!userExist) {
         return res.status(401).json({ "message": "no such user" }); // Unauthorized
     }
     // evaluate Password
+
     const match = await bcrypt.compare(pass, userExist.password)
     if (match) {
         const roles = Object.values(userExist.roles) // Object.values returns the values not key value pair
@@ -34,7 +26,7 @@ const handleLogin = async (req, res) => {
                 }
             },
             process.env.ACCESS_TOKEN_SECRET,
-            { expiresIn: "30s" }
+            { expiresIn: "120s" }
 
         );
         const refreshToken = jwt.sign(
@@ -44,16 +36,22 @@ const handleLogin = async (req, res) => {
 
         );
         // Saving refresh token with current user 
-        const otherUsers = userDB.users.filter(person => person.username !== userExist.username);
-        const currentUser = { ...userExist, refreshToken };
-        userDB.setUsers([...otherUsers, currentUser]);
-        await fsPromises.writeFile(
-            path.join(__dirname, "../data/users.json"),
-            JSON.stringify(userDB.users)
-        );
+        // const otherUsers = User.filter(person => person.username !== userExist.username);
+        // const currentUser = { ...userExist, refreshToken };
+        await User.updateOne(
+            userExist.ObjectID,
+            {
+                $set: {
+                    "refreshToken": refreshToken
+                }
+            }
+        )
+
+
+
         // httpOnly cookie is not available to js thats why we are sending refresh token in cookie otherwise in normal cookie we dont send it 
         // httpOnly cookie is not 100% secure but much secure than localStorage or normal cookie
-        res.cookie("checker", refreshToken, { httpOnly: true ,  maxAge: 24 * 60 * 60 * 1000 })//sameSite:"None",secure:true, add this if deploying on browser not use this when using thunder client 
+        res.cookie("checker", refreshToken, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 })//sameSite:"None",secure:true, add this if deploying on browser not use this when using thunder client 
         res.json({ accessToken })
         // we must save the accessToken in memory not in cookie or localstorage so that it cant be accessed by js
 

@@ -39,7 +39,7 @@ module.exports = { handleLogout }
 // To avoid the previously mentioned risks it is recommanded for frontend client applications to only store Access Token in memory ---
 //  --- so they will be lost automatically when applicatiion is closed
 // Access Token should not be stored in local storage or cookie
-// Our API will issue Refresh Token in a httpOnly cookie this type of cookie is not accessible cia JavaScript
+// Our API will issue Refresh Token in a httpOnly cookie this type of cookie is not accessible via JavaScript
 // Refresh Token must have an expiry date which will then require users to login again
 // Refresh Token should not have the ablity to issue new refresh tokens because that essiessentially grands indefinite access if the Refresh Token gets into the wrong hands
 
